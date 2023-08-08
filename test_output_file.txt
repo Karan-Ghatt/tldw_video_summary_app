@@ -1,137 +1,292 @@
-this is interesting uh yeah this is a uh
-I hate showing Twitter beef by the way
-this is too funny yeah I can I can help
-this guy uh what is it Jason Smith he's
-a massive shill yeah he's chill for the
-Chinese government American dude right
-yeah yeah which is Terraria you don't
-usually get Americans no you do there's
-an up a bit of an update let's be honest
-yeah the majority are from Canada it's
-true so you know foreigners who go to
-China and they're treated differently
-and probably treated as an important
-person for the first time in their lives
-so they absolutely fall in love with
-that uh attention and the power and so
-what they do is they decide to uh White
-Knight for China for lack of a better
-yeah I mean this is an official capacity
-I think he works for cgtn or something
-well it's not this is not a zugang um
-yeah I mean he's yeah whatever yeah he's
-doing like all those tours and the
-propaganda tours and things so yeah
-xinjiang and all that no he is a
-journalist for Chinese State media oh
-okay well either way he literally works
-for cgtn whether it yeah he probably
-does I mean most of them do actually as
-a stringer at very no release no just
-straight up okay well either way that's
-neither here nor there yeah what's what
-is here is the fact that the dude
-non-stop posts Pro Beijing propaganda
-every day he he is a host of The Bridge
-podcast which is the Chinese government
-podcast right okay so either way I mean
-if you open it's like he's always like
-posting yeah there he is he's posting
-something like look how better China is
-than America and look at the like all
-the stuff so he posted this thing which
-says China has rolled out exoskeleton
-suits to the general public China is
-living in 21.01 20 what is this new
- going around this is all the
-propagandas for China right now are
-saying China's living in 23 2 300 or
-whatever they're making up these
-ridiculous like future forward claims
-bro have you been to China you work and
-you work for China walk outside your
-little bubble in Beijing have a little
-look yeah yeah
-so I couldn't help it so I said maybe
-you should get one since simping for the
-CCP proves that you obviously lack a
-smile oh that's I and again I don't
-usually post but this is such a stupid
-yeah it's like three in the morning or
-something I couldn't sleep and I just
-looked at Twitter I'm like unscrew this
-because you know that stuff's not
-available to the freaking public anyway
-yeah yeah even if it is it's not wide
-widely used sure but it's yeah anyway
-just had to put that in there it's in a
-while that was a good wins yeah we could
-do that every once in a while once in a
-while that's a little treat yeah so
-there's some crazy that just went
-down they found a covid lab yeah a
-clandestine secret illegal lab working
-with infectious diseases over in
-California and Reedley California yeah
-which is I guess near Fresno or
-something so yeah I learned about this
-and the more I look into it the more sus
-this is yeah this is really effed up in
-some bullshits going down I reckon so I
-actually I'm going to do an expose on it
-yeah you're going to do a proper video
-on it what might say I've already done
-it yeah exactly I will release that yeah
-um it's scary long like just a little
-bit of info for you guys they found a
-lot of um infectious diseases in there
-that they were keeping like yeah you
-know HIV and uh yeah freaking cholera
-and all this stuff which you shouldn't
-be hanging around it's very bad it's
-like a re if you look you're going to
-show it all you'll show how bad and
-poorly equipped the so-called lab was oh
-but there were like a thousand covert
-mice in there yeah 900 yeah 900 yeah so
-and those are mice that are engineered
-to Catch and Carry covert and it's in
-like a very insecure lab in the middle
-of California very very sus and it was
-actually in an abandoned building it was
-actually found a while ago yeah supposed
-to be anyway yeah you'll you'll do the
-whole thing but that's that's something
-that needs to be seriously looked at yes
-seriously so this is a little meme
-and uh what does it have to say
-[Music]
-so this is uh I go back yeah I'll go
-back to yeah this is a uh a TV that
-transforms into a psychotic like metal
-villain Transformers former thing to
-attack the person using it yeah because
-uh xiaomi note 11 is a type of cell
-phone from China so if you said Taiwan
-it's a notebook that's a notebook it
-would get very upset yes
-oh you didn't hear anything
-oh yeah that's true sorry
-[Music]
-thank you
-[Music]
-thank you
-[Music]
-we're gonna be talking about plants and
-animals that came from China yep that
-are ruining your country they're
-forbidden fruits or whatever
-she does look like changing things
-that is Xi Jinping the s-he
-easy to catch I guess
-sorry I don't understand
-last five times I also supported this
-this is my flavor they suck
-[Music]
-When I close my eyes
-[Music]
+48 hours ago, Microsoft Research released a paper 
+describing a new language model for code called  
+Phi-1. Despite using few parameters and little 
+training data by modern standards, Phi-1 gets  
+very strong results. In this video, I'll describe 
+the key findings of the paper and explain why,  
+together with the Orca work from Microsoft, this 
+research could represent a step change in the cost  
+of training large language models with significant 
+implications for the machine learning ecosystem. 
+But first, let's take a step back. To get a handle 
+on Phi-1, we need to understand the journey of  
+large language models so far. It helps to begin by 
+looking at what the community has learned over the  
+last few years. Perhaps the best-known empirical 
+result has been the so-called scaling laws,  
+finding that performance improves somewhat 
+predictably as one scales up either the  
+amount of compute or the size of the network. In 
+this work, the authors explore a different axis:  
+the quality of the data. They draw 
+inspiration from the recent Tiny Stories  
+research on small-scale synthetic data that 
+highlighted the importance of data quality. 
+The goal of this work is to show that high-quality 
+data can even improve the state of the art of  
+large language models while dramatically 
+reducing the dataset size and training  
+compute. This is a result that can significantly 
+reduce the environmental cost of LLMs. As noted  
+by the authors, I think it may also have 
+big implications for the ability of teams  
+with fewer resources to build powerful models.
+The headline results in this paper are reported  
+on HumanEval, which is a dataset of handwritten 
+problems curated by OpenAI as part of their Codex  
+work, and the Mostly Basic Python Programs 
+Benchmark of entry-level Python programs  
+introduced by Google. A few things jump out. 
+First, Phi-1 gets very strong results: 50.6%  
+on HumanEval, the most widely reported benchmark. 
+Only Wizard Coder and GPT4 score higher in this  
+table, and Phi-1 outperforms Wizard Coder on MBP.
+The second is the scale. While Wizard Coder has  
+16 billion parameters and a trillion tokens 
+of training data, Phi-1 is just 1.3 billion  
+parameters and is trained on 7 billion tokens. 
+Of course, GPT4 is playing its cards close to its  
+chest. How are these Phi-1 results possible? 
+What is the magic ingredient? The answer,  
+according to the authors, is very much the 
+data quality. They say that, roughly speaking,  
+we pre-train on textbook-quality data, 
+both synthetically generated with GPT  
+3.5 and filtered from web sources, and 
+we fine-tune on textbook exercise-like  
+data. Despite being several orders of magnitude 
+smaller than competing models, both in terms of  
+dataset and model size, Phi-1 performs very well.
+Let's turn to training details and the importance  
+of high-quality data. Looking at existing code 
+collections, like the stack gathered as part  
+of the Big Code project, the authors argue that 
+these sources are not optimal for teaching the  
+model how to reason and plan algorithmically. 
+Based on manual inspection of random samples,  
+the authors observe that many of the snippets 
+in existing datasets are not very instructive  
+for learning the basics of coding and suffer 
+from several drawbacks. The samples are not  
+self-contained, consist of trivial or boilerplate 
+code, are often buried inside complex or poorly  
+documented functions, making them difficult to 
+follow or learn from, and are skewed towards  
+certain topics or use cases, resulting in an 
+unbalanced distribution of coding concepts. 
+I particularly like this line: 'One can only 
+imagine how frustrating and inefficient it  
+would be for a human learner to try to 
+acquire coding skills from these datasets,  
+as they would have to deal with a lot of noise, 
+ambiguity, and incompleteness in the data.'  
+Indeed, the authors then conjecture that language 
+models would benefit from a training set that  
+hasthe same qualities as what a human would 
+perceive as a good textbook. It should be clear,  
+self-contained, instructive, and balanced.
+The training relies on three main datasets: a  
+filtered code language dataset, which is a subset 
+of the Stack and Stack Overflow obtained by using  
+a language model-based classifier, consisting 
+of about 6 billion tokens; a synthetic textbook  
+synthetic exercises dataset, consisting of 180 
+million tokens of Python exercises and solutions. 
+How useful is this data? What you can see here 
+is that in each scenario, either of 350 million  
+parameters or 1.3 billion parameters, moving 
+from the Stack to Code Textbook brings a gain,  
+and fine-tuning on Code Exercises brings a 
+further major boost. Of course, this is very much  
+fine-tuning for the target distribution of solving 
+programming exercises, so it doesn't necessarily  
+immediately follow from this result that the 
+model will also be better as a coding assistant.  
+But still, the result is quite striking.
+I find the filtering process to be quite  
+interesting. The authors start from the Python 
+subset of the deduplicated version of the Stack  
+and Stack Overflow datasets. They then annotate 
+the quality of a small subset of these files,  
+about 100,000 samples, using GPT4. Given a code 
+snippet, the model is prompted to determine its  
+educational value for a student whose goal is 
+to learn basic coding concepts. After this,  
+they use this annotated dataset to train a Random 
+Forest classifier that predicts the quality of a  
+file or sample, using its output embedding from a 
+pre-trained CodeGen model as features. They make  
+the point that they are using GPT4 minimally, only 
+for annotations on the quality of a small subset  
+of the Stack and Stack Overflow samples, rather 
+than as a core part of the synthetic pipeline. 
+Here, you can find snippets scored as high 
+educational value and low educational value. On  
+the left, we have small functions with descriptive 
+titles and docstrings. The model can even learn  
+the magical value of Epsilon, which clearly 
+here has been ordained by the gods to be 10  
+to the minus 12. On the right, we have a bunch 
+of attributes being set, which is presumably  
+significantly harder for the model to learn from.
+Next, we move on to the creation of synthetic  
+textbook-quality datasets. It's clear that we 
+want diverse data, but this isn't easy because  
+simply prompting the model to produce 
+a coding textbook or set of exercises,  
+even with some variation in the instructions 
+or the parameters, will likely result in a  
+very homogeneous and redundant dataset. So, one 
+needs to find the right trick that will induce  
+the language model to be more creative and 
+diverse in its output while still maintaining  
+the quality and the coherence of the examples.
+The first part of their data is the synthetic  
+textbook dataset of less than one billion tokens 
+of GPT 3.5 generated Python textbooks, synthesized  
+to provide a high-quality source of natural 
+language-heavy text interleaved with relevant  
+code snippets. The authors say that diversity is 
+obtained by providing constraints on the topics  
+and target audience of the generated textbook. 
+Here's an example: first, we have a short  
+paragraph defining singular matrices, then we have 
+an example matrix together with an explanation for  
+how we can determine whether it's singular. Then 
+we get a Python implementation of the function,  
+and finally an example usage together with 
+a comment communicating the expected output. 
+Next, we have the Code Exercises dataset, a small 
+synthetic exercises dataset consisting of less  
+than 180 million tokens of Python exercises and 
+solutions. Where each exercise is a docstring  
+of a function that needs to be completed. Given 
+its close proximity to the testing distribution,  
+the authors conduct explicit decontamination and 
+alternative evaluations to ensure that problems  
+similar to those from theHumanEval benchmark are 
+not seen during fine-tuning. Here's an example  
+where the task is to make a list of valid 
+guessing letters that are present in a word,  
+with a docstring and a solution.
+The model architecture and training  
+are fairly standard, effectively following 
+CoGen with a few modifications like using the  
+Flash Attention implementation of multi-head 
+attention. They train on 8 Nvidia A100 GPUs  
+for not very long. The pre-trained base model, 
+Phi-1 Base, was obtained in under four days of  
+training. Fine-tuning to obtain Phi-1 used 
+an additional 7 hours on the same hardware. 
+Let's think about what it has taken to produce a 
+model with very competitive performance on Python  
+coding benchmarks. First, a billion tokens of 
+GPT 2.0.5 for the synthetic textbook dataset.  
+Looking at pricing, this costs 0.02 dollars per 
+1000 output tokens, and we probably also need  
+a few input tokens, perhaps a tenth as many, 
+which costs 0.015 dollars per thousand tokens. 
+Next, for the Code Exercises dataset, we 
+need another 180 million tokens of Python,  
+again generated with GPT 3.5, so we can estimate 
+cost with the same pricing scheme. Next,  
+we have the cost of annotation with GPT4. 
+Assuming these samples are representative  
+and they have about 100 tokens each, GPT4 
+will have processed a little more than 10  
+million input tokens and perhaps 1 million 
+output tokens if there are 10 tokens in  
+each answer. The cost here is 0.06 dollars 
+per thousand input tokens and 0.12 dollars  
+per thousand output tokens if we gratuitously 
+use the GPT4 model with the largest context. 
+Let's assume you pay for your GPUs on the 
+most expensive AWS setup, using on-demand  
+pricing. That's 31.218 dollars per hour, and 
+we'll need this for 4 days and seven hours,  
+or 103 hours. Last, we need to estimate the price 
+of getting a cappuccino in Redmond while waiting  
+for OpenAI to generate the tokens. Hmm, we have 
+a lot of options here. We'll take a Grande, 5.65. 
+We can throw all this into a spreadsheet, 
+and we find that the compute and cappuccino  
+budget for this entire project probably cost a 
+little under six and a half thousand dollars.  
+That's less than two Apple Vision Pros. 
+A bargain! This is, in relative terms,  
+what you might describe as an affordable model.
+The last experiments consider a more aggressive  
+form of data pruning to provide more evidence that 
+Phi-1 is not just good because it sees training  
+examples that look like the test set. Here, they 
+find that even after heavily pruning the dataset,  
+Phi-1 still outperforms StarCoder Prompted 
+by a large margin, which validates that the  
+performance boost is not due to dataset 
+contamination, even when the latter term  
+is understood loosely. However, it is clear 
+from their analysis that all models perform  
+better on test programs that are similar to those 
+generated by GPT 3.5, relative to those that are  
+non-similar. We can see that in the Phi-1 model, 
+in the pruned model, and in StarCoder Prompted. 
+Let's wrap things up. The key takeaway here 
+is that by crafting textbook-quality data,  
+the authors were able to train a model that 
+surpasses almost all open-source models on coding  
+benchmarks such as HumanEval and MBP, despite 
+being 10 times smaller in model size and 100  
+times smaller in dataset size. I think this has 
+significant implications for training efficiency.  
+It's hard to know how quickly this will affect 
+the commercial ecosystem. The OpenAI terms of use  
+explicitly forbid using output form the services 
+to develop models that compete with OpenAI,  
+but it may be open to interpretation 
+howbroadly the term 'compete' applies,  
+and these terms may not be true of other 
+providers. One for the lawyers, I suspect. 
+The authors note some limitations. Firstly, 
+Phi-1 is specialized in Python coding, so it  
+can't handle other languages yet. Second, it lacks 
+the domain-specific knowledge of larger models,  
+such as programming with specific APIs or 
+using less common packages. And lastly,  
+due to the lack of diversity in terms of 
+language and style, Phi-1 is less robust to  
+stylistic variations or errors in the prompt. For 
+instance, its performance substantially degrades  
+when there are grammatical mistakes in the prompt.
+Still, none of these limitations seem fundamental,  
+and with more work, their approach could be used 
+to tackle each one of them, although it is unclear  
+what scaling might be necessary to overcome 
+both for the model size and the dataset size.  
+The authors also believe that significant 
+gains could be achieved by using GPT4 to  
+generate the synthetic data instead of GPT 3.5, 
+since they noticed that GPT 3.5 data has a high  
+error rate. Perhaps most interestingly, Phi-1 is 
+able to achieve high coding proficiency despite  
+those errors. A similar phenomenon was observed 
+in prior work on the physics of language models,  
+where a language model could be trained on data 
+with a 100% error rate and still generate correct  
+answers at test time. This appears to reflect 
+the long-standing observation that students can  
+outperform teachers in many distillation settings.
+The authors conclude by saying that as language  
+models themselves will be used to create data for 
+future language models, it further increases the  
+urgency on the ethical and social implications of 
+training such models, such as the accountability,  
+the transparency, and the bias of the data and 
+the models that are involved in this process. 
+That's it, we've reached the end. Though it's 
+early days, my preliminary judgment is that  
+this preprint, taken together with Orca, will 
+be pointed to as a significant transition point  
+in how efficiently large language models can 
+be trained. Reducing costs by several orders  
+of magnitude could be a very big deal. Thanks 
+for watching. I hope you have a wonderful day.

@@ -2,8 +2,27 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api.formatters import TextFormatter
 import openai
 import pprint as pp
+import re
 
-video_id = 'Yz0uImGWaTk'
+VIDEO_LINK = 'https://www.youtube.com/watch?v=ZW3dcu8H4gI'
+
+# Take video link and extract video ID
+def extract_youtube_video_id(url):
+    # Define the regular expression pattern
+    pattern = r'(?<=v=)([\w-]+)'
+
+    # Use re.search to find the match in the URL
+    match = re.search(pattern, url)
+
+    if match:
+        url_video_id = match.group(1)
+        return url_video_id
+    else:
+        return None
+
+# Assign video ID from given link to video_id
+# to be passed to transcript function
+video_id = extract_youtube_video_id(VIDEO_LINK)
 
 # Must be a single transcript.
 transcript = YouTubeTranscriptApi.get_transcript(video_id)
