@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+
+    <title>YouTube Summary App</title>
+    <style>
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: 200% 200%;
+}
+
+body.dark-mode::before {
+    animation: gradientAnimation 10s infinite linear, darkenBackground 20s infinite linear;
+    background: linear-gradient(45deg, #232323, #333, #555, #666);
+}
+
+body:not(.dark-mode)::before {
+    animation: gradientAnimation 10s infinite linear, lightenBackground 20s infinite linear;
+    background: linear-gradient(45deg, #f2f2f2, #f5f9fc, #b2c3ff, #69a9ff);
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes darkenBackground {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes lightenBackground {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+        /* New Code Above */
+
+        /* Your custom CSS here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            margin-bottom: 80px;
+        }
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+        .video-summary-header {
+            text-align: center;
+            color: #343a40;
+        }
+        .tagline {
+            text-align: center;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-control {
+            border: 1px solid #ced4da;
+        }
+        .form-control.dark-mode {
+            background-color: #333;
+            color: #e0e0e0;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+        .alert {
+            margin-top: 1rem;
+        }
+        /* Additional style for the toggle button */
+#dark-mode-toggle {
+    margin-left: 0.5rem;
+    background-color: #343a40; /* Default light mode background color */
+    transition: background-color 0.3s, color 0.3s;
+    padding: 0.375rem 0.75rem;
+    color: #b0afae; /* Set text color for visibility in light mode */
+}
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #f8f9fa; /* Change background color for dark mode */
+    color: #e0e0e0; /* Set text color for visibility in dark mode */
+}
+
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #343a40;
+            color: #e0e0e0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: #e0e0e0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+        .navigation {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-right: 20px; /* Add margin to space from the right edge */
+        }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-family: 'Quicksand', sans-serif; /* Apply the Montserrat font */
+    font-weight: 500; /* Adjust the font weight */
+    font-size: 2.5rem; /* Adjust the font size */
+    color: #343a40; /* Your desired text color */
+    margin: 0;
+}
+
+
+.about-sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: rgba(248, 249, 250, 0.5); /* Adjust the opacity as needed */
+    padding: 20px;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+        .about-sidebar.active {
+            display: block;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #333;
+            animation: spin 1s linear infinite;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body class="{{ dark_mode_class }}">
+    <div class="container mt-5">
+        <div class="header">
+            <h1>uSummarize</h1>
+            <div class="navigation">
+                <button id="dark-mode-toggle" class="btn btn-secondary">Dark Mode</button>
+                <a href="#" class="btn btn-secondary about-btn">About</a>
+            </div>
+        </div>
+        <p class="tagline">AI-Powered Video Summaries; Learn More, Save Time</p>
+
+        <form method="POST" action="/" class="mb-4" id="summary-form">
+            <div class="form-group">
+                <label for="video_url">Enter YouTube Video URL:</label>
+                <input type="text" id="video_url" name="video_url" class="form-control" placeholder="E.g. https://www.youtube.com/watch?v=...">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Get Summary</button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Clear</a>
+            </div>
+        </form>
+
+        {% if error_message %}
+            <div class="alert alert-danger">{{ error_message }}</div>
+        {% endif %}
+
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="loading-spinner"></div>
+        </div>
+
+        {% if summary %}
+            <h2 class="mt-4">Video URL: {{ video_url }}</h2>
+            <div class="card mt-4 summary-card">
+                <div class="card-body">
+                    <h3 class="card-title">Summary:</h3>
+                    {% for paragraph in summary.split('\n') %}
+                        {% if paragraph.strip() %}
+                            <p class="card-text">{{ paragraph }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+<div class="about-sidebar">
+    <h3>About Us</h3>
+    <div class="about-section">
+        <h4>Overview</h4>
+        <p>This app provides a convenient way to generate video summaries using AI-powered transcription and analysis. It leverages OpenAI's Language Model (LLM) to process video content and generate concise summaries, simplifying the comprehension of lengthy videos.</p>
+    </div>
+    <div class="about-section">
+        <h4>Key Features</h4>
+        <ul>
+            <li>AI-powered transcription and analysis</li>
+            <li>Concise video summaries</li>
+            <li>Effortless extraction of essential insights</li>
+        </ul>
+    </div>
+    <div class="about-section">
+        <h4>Why Choose Us</h4>
+        <p>Our commitment to harnessing natural language processing empowers you to save time and gain valuable knowledge from YouTube videos without the need to watch them in full.</p>
+    </div>
+    <div class="about-section">
+        <h4>Stay Connected</h4>
+        <p>Connect with me on GitHub to stay updated on the latest features and improvements:</p>
+        <p><a href="https://github.com/Karan-Ghatt" target="_blank">
+            <span class="icon">
+                <i class="fab fa-github"></i> <!-- Font Awesome GitHub icon -->
+            </span>
+            GitHub Repository
+        </a></p>
+    </div>
+</div>
+
+
+
+        <div class="footer">
+            uSummeries - YouTube Summary App &copy; 2023. All rights reserved.
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script>
+
+
+            // NEW CODE BLOCK BELOW
+
+            // Check and apply dark mode preference on page load
+            var darkModePreference = sessionStorage.getItem('dark_mode');
+            if (darkModePreference === 'true') {
+                $('body').addClass('dark-mode');
+                $('.form-control').addClass('dark-mode');
+                $('#dark-mode-toggle').text('Light Mode'); // Set the text to "Light Mode"
+            }
+
+            // Dark mode toggle
+$(document).ready(function () {
+    // Check and apply dark mode preference on page load
+    var darkModePreference = sessionStorage.getItem('dark_mode');
+    if (darkModePreference === 'true') {
+        $('body').addClass('dark-mode');
+        $('.form-control').addClass('dark-mode');
+        $('#dark-mode-toggle').text('Light Mode');
+    } else {
+        $('body').addClass('light-mode'); // Set initial class for light mode
+    }
+
+    // Dark mode toggle
+    $('#dark-mode-toggle').click(function (e) {
+        e.preventDefault();
+        $('body').toggleClass('dark-mode');
+        $('body').toggleClass('light-mode'); // Toggle light mode class
+
+        if ($('body').hasClass('dark-mode')) {
+            sessionStorage.setItem('dark_mode', 'true');
+            $('#dark-mode-toggle').text('Light Mode');
+        } else {
+            sessionStorage.setItem('dark_mode', 'false');
+            $('#dark-mode-toggle').text('Dark Mode');
+        }
+    });
+});
+
+
+            // NEW CODE BLOCK ABOVE
+
+            // Show hide overlay for loading
+            $(document).ready(function () {
+                // Show loading overlay
+                $('#summary-form').submit(function () {
+                    $('#loading-overlay').show();
+                });
+
+                // Hide loading overlay when summary is received
+                {% if summary %}
+                    $('#loading-overlay').hide();
+                {% endif %}
+            });
+
+            // Show/hide the about sidebar
+            $('.about-btn').on('click', function() {
+                $('.about-sidebar').toggleClass('active');
+            });
+
+
+
+        </script>
+    </body>
+</html>

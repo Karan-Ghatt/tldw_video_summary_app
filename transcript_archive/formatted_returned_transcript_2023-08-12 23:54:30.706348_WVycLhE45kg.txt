@@ -1,0 +1,288 @@
+ever since the channel hijack I have
+been inundated with Facebook ads for the
+fix me stick they claim it will remove
+viruses clean my computer and even get
+my windows running like new all in about
+20 minutes those are some pretty bold
+claims but their company got offers from
+all four of the investors on the
+Canadian version of Shark Tank back in
+2014. they're sold on the shopping
+channel and they're still around nearly
+10 years later they must be doing
+something right how is it that I've
+never heard of them then inundating
+Facebook ads they're sold on the
+shopping channel right this thing ain't
+aimed at me or you they're targeting our
+parents our aunts and our friends who
+keep asking for help tracking down the
+elusive any key but that doesn't
+necessarily mean that it's bad maybe
+it's a great option for those of us who
+are techy enough to fix our family's
+computers but would rather that they
+just buy this and leave us alone so we
+and play video games to find out we
+bought one actually we bought three and
+I think you're going to be surprised to
+learn exactly what they do and what they
+don't do for example none of them were
+capable of making this Segway to our
+sponsor build Redux with build Redux you
+can dominate your favorite games with
+the perfect PC for you using simple to
+navigate customization options all at a
+price that's competitive with building
+it yourself check them out at the link
+down below
+hey there it is in a nutshell the fix me
+stick is a bootable virus removal device
+that's designed to find and remove any
+malware that's managed to slip past your
+PC's defenses which is not as rare as
+you might think half a million New
+pieces of malware are discovered daily
+and the makers of the FixMeStick claim
+that it finds malware on more than 80
+percent of the computer scanned even
+though virtually all of them were
+already running some other form of
+antivirus their main value is the
+user-friendly interface that they've
+wrapped around a bootable Linux image
+that needs almost no input from the user
+you just boot from the stick accept the
+license and the FixMeStick will
+automatically connect to the internet
+ask you to register which you can Skip
+by the way check for updates load up not
+one not two but three antivirus engines
+Avira sofos and McAfee and then get
+right to scanning with all three of them
+at the same time while that's running I
+guess I should tell you about our test
+system we took one part Windows 10 test
+bench and added a few dozen drops of
+threats you'd expect any decent
+antivirus engine to flag you know
+various forms of the icar anti-malware
+tests along with some very real though
+relatively harmless malware not a huge
+challenge but definitely enough to prove
+that each of those three antivirus
+engines is actually doing something as
+advertised about 20 minutes later the
+scans were done and the FixMeStick was
+asking for input the default action is
+to remove all malware found but you can
+also pick what happens with each flagged
+file in our not terribly scientific
+testing the FixMeStick caught more than
+90 of our threat files with the majority
+spotted by all three engines but with
+that said Each one engine did miss
+things that were caught by at least one
+of the others which I guess answers the
+question of why does it need to run all
+three we also tested the FixMeStick
+against a medi-cat USB stick to see if a
+the FixMeStick would scan removable
+media at all and B to see if it would
+flag useful tools as malware as expected
+we did get false positives on some of
+our system utilities but this did show
+us that yes removable media is
+automatically scanned alongside your
+operating system Drive in fact by
+default FixMeStick scans all files on
+all partitions whether they're on
+removable drives or not you can change
+that behavior and some other basic
+options on the settings screen where you
+can also remove items from quarantine
+and even subject yourself to some
+targeted marketing if you're into that
+sort of thing this smooth experience
+doesn't come for free though one year's
+use of FixMeStick on up to three PCS is
+going to set you back 80 US Dollars
+whereas two years on five PCS is thirty
+dollars more for a total of a hundred
+and ten dollars that is not an
+insignificant amount however you're not
+necessarily stuck paying that much it
+can often be found cheaper in your local
+Big Box store and they have a 30-day
+trial that will set you back just twenty
+dollars if you pretty much just want to
+use it once however I have a Siri
+biggest problem with their marketing of
+that trial price they pretend to give
+you a special deal when you click
+through an ad then at the same time they
+just plainly state that the 20 trial is
+available on various Pages all over
+their website I also don't think that
+the FixMeStick in general quite lives up
+to their marketing claims most of their
+ads seem to make a big deal about
+speeding up slow systems and eliminating
+crashes and freezing while FixMeStick
+can do those things if the problems are
+being caused by malware it can't do
+anything to clean up a full drive repair
+broken windows files or sort out
+misconfigured settings this is isn't a
+technician on a stick it's just an
+antivirus tool as many of you I know are
+probably dying
+to contribute right now you can make one
+of these on your own for free there are
+plenty of bootable anti-malware tools
+out there that you can just slap onto
+your USB stick and run insert disclaimer
+about us not having validated their
+efficacy so your mileage may vary but
+the main issue with all of them for Joe
+or for Jill average is that they're just
+not as polished as this and they're not
+as fast you will likely need to manually
+update your virus definitions before you
+run a scan and the scan itself takes
+longer too then when it's done you're
+gonna have to run more tools to catch
+whatever's been missed for me or for you
+that's no big deal but for many people
+time is money and tinkering with
+computers isn't something that they do
+for pleasure which is why I guess
+FixMeStick has found a market it's not
+cheap but it does cost less than a visit
+to the local computer shop for virus
+removal and having something that you
+can just hand to Aunt Susie that's gonna
+just work on a simple infection could be
+worth it for her she might even be so
+grateful she gets you a new pcmr hoodie
+from lttstore.com where FixMeStick
+really offers bang for the buck though
+is the back me up Edition twenty dollars
+more gets you a 64 gig USB stick that
+also automatically backs up files from
+the users folder of your system drive
+after scanning them giving you at least
+a little bit of protection if you later
+get hit with something that the fix me
+stick cannot resolve something like a
+ransomware attack this may actually be
+the simplest method that we've seen for
+making a backup for an average user's PC
+by default it backs up pretty much
+everything that a casual user might be
+storing though we did notice some
+glaring emissions like photoshop's PSD
+format so if you're beyond a casual user
+or if you need more than 64 gigs of
+storage you might want to tweak the
+settings to include other extensions or
+to Target additional folders by that
+point you might as well pick up a larger
+external drive and then just use the
+only slightly more complicated tools
+that are built right into Windows or Mac
+OS we also looked at their start me
+stick and to many of you this is going
+to look like a pretty old idea a simple
+bootable operating system that just
+works on any old hardware for the folks
+buying fixmesticks though this might as
+well be magic now grandpa can get on
+Facebook and check his email with things
+feeling nice and Zippy with a
+lightweight operating system and a
+modern browser he can even use it on any
+PC so he can take it with him when he
+travels but there are some problems for
+one thing it's a read-only system which
+means you can't screw up the OS by
+downloading something nasty but on the
+other hand it means that any new
+bookmarks or files are going to Simply
+vanish on reboot and it doesn't give the
+user any indication that that's going to
+happen as you're using it it looks like
+it's done what you've told it to do your
+downloads and your bookmarks hang out in
+temporary storage while the OS is
+running but unless you add a separate
+external drive for storage and sign into
+a Google account for your bookmarks all
+of it will disappear even worse is the
+fact that this means it cannot update
+itself for updates you have to boot into
+Windows run the updater for your start
+me stick then boot back into your live
+OS convenient the second big issue is
+that it's 80 and it expires if your
+subscription expires
+why anybody watching this no this one
+really is easy could Google something
+like persistent live USB and follow a
+guide or or just download Rufus and drag
+the slider to the right to create a
+similar bootable USB stick and that one
+would even let Grandpa save files in his
+home drive all for the cost of a USB
+stick and anywhere from 10 minutes to a
+couple hours of time and it would never
+cost you anything for updates or I mean
+if you just wanted to skip all of that
+you could just put a simple Linux
+install on the system's hard drive in
+the first place improving Grandpa's
+performance without the need for
+unreliable USB boot media
+so then fix me 6 product line is
+something of a mixed bag a bootable
+antivirus that's simple enough for
+almost anyone to use is actually useful
+and when paired with automatic backups
+it might even be something that I would
+recommend to the less tech savvy user
+but then at the same time the pricing is
+pretty spicy their marketing ranges from
+optimistic to downright unacceptable and
+whatever they might say these tools
+aren't and never will be a replacement
+for a competent technician they're also
+not a replacement for our sponsor Micro
+Center they've renamed August to build
+your own month in honor of the dozens of
+amazing new discounts on their site not
+sure if they have the legal right to do
+that but here we are new customers can
+get 25 off their purchase of a hundred
+dollars or more in store and if you
+submit any custom build to their build
+showcase you can get an additional 25
+bucks off coupon upon approval wow if
+you're new to PC Building Micro Center's
+professional staff can help you pick
+your parts and even build your PC all
+within your ideal budget now you might
+look around and think uh oh I don't see
+any micro Centers near me but that might
+change their Indianapolis store just
+opened they have a new Charlotte
+location opening early 2024 and two more
+stores are in the works so check out
+Micro Center this build your own month
+and get a sneak peek at their new
+Charlotte location at the links below
+I'm gonna miss saying August if you
+enjoyed this video you might be
+interested in the video we did a couple
+years back testing how antivirus
+programs impact your system performance
+you can find that at the link down below
