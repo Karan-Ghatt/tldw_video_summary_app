@@ -5,65 +5,63 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-
-
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 
 
-    <title>YouTube Summary App</title>
+    <title>tl;dw - YouTube Summary App</title>
+
     <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: 200% 200%;
+        }
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-size: 200% 200%;
-}
+        body.dark-mode::before {
+            animation: gradientAnimation 10s infinite linear, darkenBackground 20s infinite linear;
+            background: linear-gradient(45deg, #232323, #333, #555, #666);
+        }
 
-body.dark-mode::before {
-    animation: gradientAnimation 10s infinite linear, darkenBackground 20s infinite linear;
-    background: linear-gradient(45deg, #232323, #333, #555, #666);
-}
+        body:not(.dark-mode)::before {
+            animation: gradientAnimation 10s infinite linear, lightenBackground 20s infinite linear;
+            background: linear-gradient(45deg, #f2f2f2, #f5f9fc, #b2c3ff, #69a9ff);
+        }
 
-body:not(.dark-mode)::before {
-    animation: gradientAnimation 10s infinite linear, lightenBackground 20s infinite linear;
-    background: linear-gradient(45deg, #f2f2f2, #f5f9fc, #b2c3ff, #69a9ff);
-}
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
 
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
+        @keyframes darkenBackground {
+            0% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
-@keyframes darkenBackground {
-    0% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes lightenBackground {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.5;
-    }
-}
+        @keyframes lightenBackground {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
 
         /* New Code Above */
 
@@ -114,18 +112,18 @@ body:not(.dark-mode)::before {
             margin-top: 1rem;
         }
         /* Additional style for the toggle button */
-#dark-mode-toggle {
-    margin-left: 0.5rem;
-    background-color: #343a40; /* Default light mode background color */
-    transition: background-color 0.3s, color 0.3s;
-    padding: 0.375rem 0.75rem;
-    color: #b0afae; /* Set text color for visibility in light mode */
-}
+        #dark-mode-toggle {
+            margin-left: 0.5rem;
+            background-color: #343a40; /* Default light mode background color */
+            transition: background-color 0.3s, color 0.3s;
+            padding: 0.375rem 0.75rem;
+            color: #b0afae; /* Set text color for visibility in light mode */
+        }
 
-body.dark-mode #dark-mode-toggle {
-    background-color: #f8f9fa; /* Change background color for dark mode */
-    color: #e0e0e0; /* Set text color for visibility in dark mode */
-}
+        body.dark-mode #dark-mode-toggle {
+            background-color: #f8f9fa; /* Change background color for dark mode */
+            color: #e0e0e0; /* Set text color for visibility in dark mode */
+        }
 
 
         /* Dark mode styles */
@@ -149,35 +147,53 @@ body.dark-mode #dark-mode-toggle {
             align-items: center;
             margin-right: 20px; /* Add margin to space from the right edge */
         }
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
 
-.header h1 {
-    font-family: 'Quicksand', sans-serif; /* Apply the Montserrat font */
-    font-weight: 500; /* Adjust the font weight */
-    font-size: 2.5rem; /* Adjust the font size */
-    color: #343a40; /* Your desired text color */
-    margin: 0;
-}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Quicksand', sans-serif; /* Apply the Montserrat font */
+            font-weight: 500; /* Adjust the font weight */
+            font-size: 2.5rem; /* Adjust the font size */
+            color: #e6203a; /* Your desired text color */
+            margin: 0;
+        }
 
 
-.about-sidebar {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 300px;
-    height: 100vh;
-    background-color: rgba(248, 249, 250, 0.5); /* Adjust the opacity as needed */
-    padding: 20px;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
-    display: none;
-}
+        .about-sidebar {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: rgba(248, 249, 250, 0.5); /* Adjust the opacity as needed */
+            padding: 20px;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
 
         .about-sidebar.active {
+            display: block;
+        }
+
+        .how-to-use-sidebar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: rgba(248, 249, 250, 0.5); /* Adjust the opacity as needed */
+            padding: 20px;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        /* Make the "How to Use" sidebar visible by default */
+        .how-to-use-sidebar.active {
             display: block;
         }
 
@@ -218,13 +234,13 @@ body.dark-mode #dark-mode-toggle {
 <body class="{{ dark_mode_class }}">
     <div class="container mt-5">
         <div class="header">
-            <h1>uSummarize</h1>
+            <h1>tl;dw</h1>
             <div class="navigation">
                 <button id="dark-mode-toggle" class="btn btn-secondary">Dark Mode</button>
                 <a href="#" class="btn btn-secondary about-btn">About</a>
             </div>
         </div>
-        <p class="tagline">AI-Powered Video Summaries; Learn More, Save Time</p>
+        <p class="tagline">AI-Powered YouTube Video Summaries; Learn More, Save Time.</p>
 
         <form method="POST" action="/" class="mb-4" id="summary-form">
             <div class="form-group">
@@ -246,7 +262,7 @@ body.dark-mode #dark-mode-toggle {
         </div>
 
         {% if summary %}
-            <h2 class="mt-4">Video URL: {{ video_url }}</h2>
+            <h2 class="mt-4">Video Title: {{ video_name }}</h2>
             <div class="card mt-4 summary-card">
                 <div class="card-body">
                     <h3 class="card-title">Summary:</h3>
@@ -263,7 +279,7 @@ body.dark-mode #dark-mode-toggle {
     <h3>About Us</h3>
     <div class="about-section">
         <h4>Overview</h4>
-        <p>This app provides a convenient way to generate video summaries using AI-powered transcription and analysis. It leverages OpenAI's Language Model (LLM) to process video content and generate concise summaries, simplifying the comprehension of lengthy videos.</p>
+        <p>This app provides a convenient way to generate YouTube video summaries using AI-powered transcription and analysis. It leverages OpenAI's Language Model (LLM) to process video content and generate concise summaries, simplifying the comprehension of lengthy videos.</p>
     </div>
     <div class="about-section">
         <h4>Key Features</h4>
@@ -289,10 +305,22 @@ body.dark-mode #dark-mode-toggle {
     </div>
 </div>
 
+        <!-- Sidebar for "How to Use" -->
+        <div class="how-to-use-sidebar active">
+            <h4>Too Long; Didn't Watch</h4>
+            <div class="about-section">
+                <h5>How to Use</h5>
+                <p></p>
+                <p>1. Enter the YouTube video URL in the search field.</p>
+                <p>2. Click the "Get Summary" button to generate the video summary.</p>
+                <p>3. Read the generated summary to quickly grasp the video's content.</p>
+            </div>
+        </div>
+
 
 
         <div class="footer">
-            uSummeries - YouTube Summary App &copy; 2023. All rights reserved.
+            tl;dw - YouTube Summary App &copy; 2023. All rights reserved.
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -310,32 +338,32 @@ body.dark-mode #dark-mode-toggle {
             }
 
             // Dark mode toggle
-$(document).ready(function () {
-    // Check and apply dark mode preference on page load
-    var darkModePreference = sessionStorage.getItem('dark_mode');
-    if (darkModePreference === 'true') {
-        $('body').addClass('dark-mode');
-        $('.form-control').addClass('dark-mode');
-        $('#dark-mode-toggle').text('Light Mode');
-    } else {
-        $('body').addClass('light-mode'); // Set initial class for light mode
-    }
+            $(document).ready(function () {
+                // Check and apply dark mode preference on page load
+                var darkModePreference = sessionStorage.getItem('dark_mode');
+                if (darkModePreference === 'true') {
+                    $('body').addClass('dark-mode');
+                    $('.form-control').addClass('dark-mode');
+                    $('#dark-mode-toggle').text('Light Mode');
+                } else {
+                    $('body').addClass('light-mode'); // Set initial class for light mode
+                }
 
-    // Dark mode toggle
-    $('#dark-mode-toggle').click(function (e) {
-        e.preventDefault();
-        $('body').toggleClass('dark-mode');
-        $('body').toggleClass('light-mode'); // Toggle light mode class
+                // Dark mode toggle
+                $('#dark-mode-toggle').click(function (e) {
+                    e.preventDefault();
+                    $('body').toggleClass('dark-mode');
+                    $('body').toggleClass('light-mode'); // Toggle light mode class
 
-        if ($('body').hasClass('dark-mode')) {
-            sessionStorage.setItem('dark_mode', 'true');
-            $('#dark-mode-toggle').text('Light Mode');
-        } else {
-            sessionStorage.setItem('dark_mode', 'false');
-            $('#dark-mode-toggle').text('Dark Mode');
-        }
-    });
-});
+                    if ($('body').hasClass('dark-mode')) {
+                        sessionStorage.setItem('dark_mode', 'true');
+                        $('#dark-mode-toggle').text('Light Mode');
+                    } else {
+                        sessionStorage.setItem('dark_mode', 'false');
+                        $('#dark-mode-toggle').text('Dark Mode');
+                    }
+                });
+            });
 
 
             // NEW CODE BLOCK ABOVE
@@ -358,8 +386,8 @@ $(document).ready(function () {
                 $('.about-sidebar').toggleClass('active');
             });
 
-
-
         </script>
     </body>
 </html>
+
+

@@ -8,7 +8,26 @@ import openai
 import re
 import datetime
 
-import pprint as pp
+from requests_html import HTMLSession
+from bs4 import BeautifulSoup as bs
+
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
+
+import aiohttp
+
+executor = ThreadPoolExecutor()
+
+# PENDING:
+# Add Finding YouTube Video Name in brains [x]
+# Add custom error message handling [x]
+# Split HTML, CSS and JS into separate files
+# Make page responsive
+
+# ------------------------------------------------------------
+
+# ------------------------------------------------------------
+
 
 OPEN_AI_KEY = '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'
 
@@ -24,6 +43,7 @@ yet all-encompassing wrap-up. Make sure to employ clear headings for each
 segment to ensure a seamless flow.
 '''
 
+
 # Take video link then extracts and returns video ID
 def extract_youtube_video_id(url):
     # Define the regular expression pattern
@@ -36,55 +56,61 @@ def extract_youtube_video_id(url):
     else:
         return None
 
+
 # Takes the video idea from the extract function and returns the formatted transcript of the video
 # The transcript is then written to a text file for storage and to be read by the gpt function.
 # The function stores the returned transcript.txt file in a directory called transcript_archive
 # If the directory does not exist, then the function creates it
 # This function will return the file directory path, with the file extension, of the returned transcript
-def get_transcript(video_id):
-    transcript = YouTubeTranscriptApi.get_transcript(video_id)
-    formatter = TextFormatter()
-    formatted_transcript = formatter.format_transcript(transcript)
+async def get_video_title(video_url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(video_url) as response:
+            html = await response.text()
+            soup = bs(html, "html.parser")
+            title = soup.find("meta", itemprop="name")["content"]
+            return title
+
+
+async def get_transcript(video_id):
+    loop = asyncio.get_event_loop()
+    formatted_transcript = await loop.run_in_executor(executor, get_transcript_sync, video_id)
     ts = datetime.datetime.now()
     ts_string = ts.strftime('%Y-%m-%d %H:%M:%S.%f')
     file_name = f'formatted_returned_transcript_{ts_string}_{str(video_id)}'
-
-    # Define the directory path
     directory = 'transcript_archive'
-
-    # Create the directory if it doesn't exist
     if not os.path.exists(directory):
         os.makedirs(directory)
-
-    # Write formatted transcript to a text file in the specified directory
-    with open(f'{directory}/{file_name}.txt', 'w', encoding='utf-8') as text_file:
+    file_path = os.path.join(directory, f'{file_name}.txt')
+    with open(file_path, 'w', encoding='utf-8') as text_file:
         text_file.write(formatted_transcript)
+    return file_path
 
-    return f'{directory}/{file_name}.txt'
+
+def get_transcript_sync(video_id):
+    transcript = YouTubeTranscriptApi.get_transcript(video_id)
+    formatter = TextFormatter()
+    formatted_transcript = formatter.format_transcript(transcript)
+    return formatted_transcript
 
 
-# This function utilizes the OpenAI GPT-3.5 Turbo model to engage in a chat-based interaction.
-# It reads text from an output file, incorporates it into a conversation with predefined system profile,
-# and generates a response using the AI model. The response is then appended to the conversation.
-def gpt_function(output_file_name):
+async def gpt_function(output_file_name):
     openai.api_key = OPEN_AI_KEY
-
     messages = [{"role": "system", "content": AGENT_PROFILE}]
-
     with open(output_file_name, 'r') as f:
         lines = f.read().replace('\n', '')
-
     if lines:
-        messages.append(
-            {"role": "user", "content": lines},
-        )
-        chat = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo", messages=messages
-        )
-    reply = chat.choices[0].message.content
-    # pp.pprint(f"ChatGPT: {reply}")
-    messages.append({"role": "assistant", "content": reply})
-    return reply
+        messages.append({"role": "user", "content": lines})
+
+        loop = asyncio.get_event_loop()
+        reply = await loop.run_in_executor(executor, get_gpt_reply, messages)
+
+        messages.append({"role": "assistant", "content": reply})
+        return reply
+
+
+def get_gpt_reply(messages):
+    chat = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
+    return chat.choices[0].message.content
 
 
 
