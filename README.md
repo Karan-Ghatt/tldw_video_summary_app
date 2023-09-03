@@ -20,35 +20,32 @@ tl;dw (Too Long; Didn't Watch) is a web application designed to help users quick
 ## Getting Started
 
 1. Clone this repository to your local machine:
-
    ```bash
    git clone https://github.com/Karan-Ghatt/tldw_video_summary_app.git
-Install the required dependencies:
 
-bash
-Copy code
-pip install -r requirements.txt
-Run the application:
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
 
-bash
-Copy code
-python app.py
-Access the app in your web browser at http://localhost:5000.
+3. Run the application:
+   ```bash
+   python app.py
 
-Usage
-Visit the tl;dw web app.
-Enter the URL of the YouTube video you want to summarize.
-Click "Get Summary" to generate the video summary.
-Read the generated summary to quickly grasp the video's content.
-Contributing
+### Usage
+
+1. Visit the tl;dw web app.
+2. Enter the URL of the YouTube video you want to summarize.
+3. Click "Get Summary" to generate the video summary.
+4. Read the generated summary to quickly grasp the video's content.
+
+### Contributing
+
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the GitHub repository.
 
-License
+### License
+
 This project is licensed under the MIT License.
 
-Acknowledgments
+### Acknowledgments
 OpenAI for their powerful language model.
 The open-source community for providing valuable libraries and tools.
-less
-Copy code
-
