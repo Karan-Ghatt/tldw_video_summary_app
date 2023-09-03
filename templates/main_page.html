@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+
+
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-
 
     <title>tl;dw - YouTube Summary App</title>
 
@@ -62,8 +63,6 @@
                 opacity: 0.5;
             }
         }
-
-        /* New Code Above */
 
         /* Your custom CSS here */
         body {
@@ -125,12 +124,36 @@
             color: #e0e0e0; /* Set text color for visibility in dark mode */
         }
 
-
         /* Dark mode styles */
         body.dark-mode {
             background-color: #343a40;
             color: #e0e0e0;
         }
+
+        /* Light mode styles */
+        body.light-mode {
+            background-color: #f8f9fa;
+            color: #343a40; /* Change the text color for light mode */
+        }
+
+        .header h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            font-size: 2.5rem;
+            margin: 0;
+            transition: color 0.3s; /* Add a transition for smooth color change */
+        }
+
+        /* Dark mode header color */
+        body.dark-mode .header h1 {
+            color: #7a7a7a; /* Change the header text color for dark mode */
+        }
+
+        /* Light mode header color */
+        body.light-mode .header h1 {
+            color: #343a40; /* Change the header text color for light mode */
+        }
+
         .footer {
             text-align: center;
             padding: 20px;
@@ -159,36 +182,38 @@
             font-family: 'Quicksand', sans-serif; /* Apply the Montserrat font */
             font-weight: 500; /* Adjust the font weight */
             font-size: 2.5rem; /* Adjust the font size */
-            color: #e6203a; /* Your desired text color */
+            color: #7a7a7a; /* Your desired text color */
             margin: 0;
         }
 
-
         .about-sidebar {
-            position: absolute;
+            position: fixed;
             right: 0;
             top: 0;
             width: 300px;
-            height: 100vh;
+            height: 100%;
             background-color: rgba(248, 249, 250, 0.5); /* Adjust the opacity as needed */
             padding: 20px;
             box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+            overflow-y: auto; /* Add scroll for content exceeding the height */
             display: none;
         }
 
+        /* Make the "How to Use" sidebar visible by default */
         .about-sidebar.active {
             display: block;
         }
 
         .how-to-use-sidebar {
-            position: absolute;
+            position: fixed;
             left: 0;
             top: 0;
             width: 300px;
-            height: 100vh;
+            height: 100%;
             background-color: rgba(248, 249, 250, 0.5); /* Adjust the opacity as needed */
             padding: 20px;
             box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+            overflow-y: auto; /* Add scroll for content exceeding the height */
             display: none;
         }
 
@@ -231,6 +256,7 @@
     </style>
 </head>
 
+<!-- Navigation section -->
 <body class="{{ dark_mode_class }}">
     <div class="container mt-5">
         <div class="header">
@@ -242,6 +268,7 @@
         </div>
         <p class="tagline">AI-Powered YouTube Video Summaries; Learn More, Save Time.</p>
 
+        <!-- URL submission form -->
         <form method="POST" action="/" class="mb-4" id="summary-form">
             <div class="form-group">
                 <label for="video_url">Enter YouTube Video URL:</label>
@@ -275,59 +302,68 @@
             </div>
         {% endif %}
 
-<div class="about-sidebar">
-    <h3>About Us</h3>
-    <div class="about-section">
-        <h4>Overview</h4>
-        <p>This app provides a convenient way to generate YouTube video summaries using AI-powered transcription and analysis. It leverages OpenAI's Language Model (LLM) to process video content and generate concise summaries, simplifying the comprehension of lengthy videos.</p>
-    </div>
-    <div class="about-section">
-        <h4>Key Features</h4>
-        <ul>
-            <li>AI-powered transcription and analysis</li>
-            <li>Concise video summaries</li>
-            <li>Effortless extraction of essential insights</li>
-        </ul>
-    </div>
-    <div class="about-section">
-        <h4>Why Choose Us</h4>
-        <p>Our commitment to harnessing natural language processing empowers you to save time and gain valuable knowledge from YouTube videos without the need to watch them in full.</p>
-    </div>
-    <div class="about-section">
-        <h4>Stay Connected</h4>
-        <p>Connect with me on GitHub to stay updated on the latest features and improvements:</p>
-        <p><a href="https://github.com/Karan-Ghatt" target="_blank">
-            <span class="icon">
-                <i class="fab fa-github"></i> <!-- Font Awesome GitHub icon -->
-            </span>
-            GitHub Repository
-        </a></p>
-    </div>
-</div>
+        <!-- Sidebar for "About" -->
+        <div class="about-sidebar">
+            <h3>About Us</h3>
+            <div class="about-section">
+                <h4>Overview</h4>
+                <p>This app provides a convenient way to generate YouTube video summaries using AI-powered transcription and analysis. It leverages OpenAI's Language Model (LLM) to process video content and generate concise summaries, simplifying the comprehension of lengthy videos.</p>
+            </div>
+            <div class="about-section">
+                <h4>Key Features</h4>
+                <ul>
+                    <li>AI-powered transcription and analysis</li>
+                    <li>Concise video summaries</li>
+                    <li>Effortless extraction of essential insights</li>
+                </ul>
+            </div>
+            <div class="about-section">
+                <h4>Why Choose Us</h4>
+                <p>Our commitment to harnessing natural language processing empowers you to save time and gain valuable knowledge from YouTube videos without the need to watch them in full.</p>
+            </div>
+            <div class="about-section">
+                <h4>Stay Connected</h4>
+                <p>Connect with me on GitHub to stay updated on the latest features and improvements:</p>
+                <p><a href="https://github.com/Karan-Ghatt" target="_blank">
+                    <span class="icon">
+                        <i class="fab fa-github"></i> <!-- Font Awesome GitHub icon -->
+                    </span>
+                    GitHub Repository
+                </a></p>
+            </div>
+        </div>
 
         <!-- Sidebar for "How to Use" -->
         <div class="how-to-use-sidebar active">
             <h4>Too Long; Didn't Watch</h4>
             <div class="about-section">
-                <h5>How to Use</h5>
+                <h5>How to Use:</h5>
                 <p></p>
                 <p>1. Enter the YouTube video URL in the search field.</p>
                 <p>2. Click the "Get Summary" button to generate the video summary.</p>
-                <p>3. Read the generated summary to quickly grasp the video's content.</p>
+                <p>3. Wait for the AI to extract and summarise the data from the video.</p>
+                <p>4. Read the generated summary to quickly grasp the video's content.</p>
+                <br><br>
+                <h5>Why Use This App</h5>
+                <p>Discover the benefits of using our app:</p>
+                <ul>
+                    <li>Use without creating an account</li>
+                    <li>Use add free and without data collection</li>
+                    <li>Save time by quickly summarizing lengthy YouTube videos.</li>
+                    <li>Effortlessly gain valuable knowledge without watching the entire video.</li>
+                    <li>Enhance your learning and research process.</li>
+                    <li>Note, currently the maximum video length is around 15 minutes.</li>
+                </ul>
             </div>
         </div>
-
-
 
         <div class="footer">
             tl;dw - YouTube Summary App &copy; 2023. All rights reserved.
         </div>
 
+        <!-- Start of JavaScript code and functionality -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script>
-
-
-            // NEW CODE BLOCK BELOW
 
             // Check and apply dark mode preference on page load
             var darkModePreference = sessionStorage.getItem('dark_mode');
@@ -365,9 +401,6 @@
                 });
             });
 
-
-            // NEW CODE BLOCK ABOVE
-
             // Show hide overlay for loading
             $(document).ready(function () {
                 // Show loading overlay
@@ -389,5 +422,3 @@
         </script>
     </body>
 </html>
-
-

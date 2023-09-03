@@ -3,13 +3,10 @@ from flask_bootstrap import Bootstrap
 from brains import extract_youtube_video_id, get_transcript, gpt_function, get_video_title
 import logging
 
-
-
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
 logging.basicConfig(level=logging.DEBUG)
-
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -41,6 +38,10 @@ async def index():
                 print(exp[:69])
                 if exp[:69] == "This model's maximum context length is 4097 tokens. However, your mes":
                     error_message = "An error has occurred: This video is too long, please choose a shorter video."
+                elif exp[:26] == "Incorrect API key provided":
+                    error_message = "An error has occurred: Incorrect API key provided"
+                elif exp.find("Subtitles are disabled for this video"):
+                    error_message = "An error has occurred: Video is not available for summary."
                 else:
                     error_message = f"An error occurred: {str(e)}"
                     logging.debug(f'An error has occurred: {str(e)}')
@@ -53,7 +54,6 @@ async def index():
 @app.route('/static/<path:filename>')
 def static_files(filename):
     return send_from_directory('static', filename)
-
 
 
 if __name__ == '__main__':

@@ -19,18 +19,12 @@ import aiohttp
 executor = ThreadPoolExecutor()
 
 # PENDING:
-# Add Finding YouTube Video Name in brains [x]
-# Add custom error message handling [x]
-# Split HTML, CSS and JS into separate files
-# Make page responsive
-
-# ------------------------------------------------------------
-
-# ------------------------------------------------------------
+# Secrets management for openAI api Key
 
 
-OPEN_AI_KEY = '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'
+OPEN_AI_KEY = 'secret_key'
 
+# Agent profile to be passed as starter prompt
 AGENT_PROFILE = '''
 Imagine yourself as a skilled video transcription assistant with the 
 responsibility of crafting a thorough and engaging summary for a YouTube 
@@ -57,11 +51,7 @@ def extract_youtube_video_id(url):
         return None
 
 
-# Takes the video idea from the extract function and returns the formatted transcript of the video
-# The transcript is then written to a text file for storage and to be read by the gpt function.
-# The function stores the returned transcript.txt file in a directory called transcript_archive
-# If the directory does not exist, then the function creates it
-# This function will return the file directory path, with the file extension, of the returned transcript
+# Function takes a URL for a YouTube video and parses the returned HTML request for the video title
 async def get_video_title(video_url):
     async with aiohttp.ClientSession() as session:
         async with session.get(video_url) as response:
@@ -71,6 +61,11 @@ async def get_video_title(video_url):
             return title
 
 
+# Takes the video idea from the extract function and returns the formatted transcript of the video
+# The transcript is then written to a text file for storage and to be read by the gpt function.
+# The function stores the returned transcript.txt file in a directory called transcript_archive
+# If the directory does not exist, then the function creates it
+# This function will return the file directory path, with the file extension, of the returned transcript
 async def get_transcript(video_id):
     loop = asyncio.get_event_loop()
     formatted_transcript = await loop.run_in_executor(executor, get_transcript_sync, video_id)
@@ -93,6 +88,9 @@ def get_transcript_sync(video_id):
     return formatted_transcript
 
 
+# Function takes file containing the transcript of the YouTube video and the initial AGENT_PROFILE
+# and passes both to be appended to a list of dicts called messages.
+# The function closes and deleted the video transcript file.
 async def gpt_function(output_file_name):
     openai.api_key = OPEN_AI_KEY
     messages = [{"role": "system", "content": AGENT_PROFILE}]
@@ -105,12 +103,13 @@ async def gpt_function(output_file_name):
         reply = await loop.run_in_executor(executor, get_gpt_reply, messages)
 
         messages.append({"role": "assistant", "content": reply})
+        f.close()
+        os.remove(output_file_name)
         return reply
 
 
+# Function passes messages list to chatGPT for response, then returns the first of the responses from the returned
+# body of the responses.
 def get_gpt_reply(messages):
     chat = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
     return chat.choices[0].message.content
-
-
-
