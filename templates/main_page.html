@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="tl;dw - YouTube Summary App">
+    <meta name="author" content="Your Name">
 
+    <!-- Favicon links -->
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
 
-
+    <!-- External CSS and JavaScript libraries -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 
     <title>tl;dw - YouTube Summary App</title>
 
     <style>
+        /* Global styles */
         body::before {
             content: "";
             position: fixed;
@@ -71,45 +76,56 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 800px;
             margin: auto;
             padding: 20px;
             margin-bottom: 80px;
         }
+
         .mb-4 {
             margin-bottom: 1.5rem;
         }
+
         .video-summary-header {
             text-align: center;
             color: #343a40;
         }
+
         .tagline {
             text-align: center;
             color: #6c757d;
             margin-top: 5px;
         }
+
         .form-group label {
             font-weight: bold;
         }
+
         .form-control {
             border: 1px solid #ced4da;
         }
+
         .form-control.dark-mode {
             background-color: #333;
             color: #e0e0e0;
         }
+
         .btn-primary {
             background-color: #007bff;
             border: none;
         }
+
         .btn-secondary {
             background-color: #6c757d;
             border: none;
         }
+
         .alert {
             margin-top: 1rem;
         }
+
         /* Additional style for the toggle button */
         #dark-mode-toggle {
             margin-left: 0.5rem;
@@ -164,6 +180,7 @@
             bottom: 0;
             left: 0;
         }
+
         .navigation {
             display: flex;
             gap: 10px;
@@ -253,10 +270,28 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* CSS to style the close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333; /* Change the color as needed */
+            background: none;
+            border: none;
+            outline: none;
+            padding: 0;
+        }
+
+        /* Adjust the color of the close button when hovered */
+        .close-button:hover {
+            color: red; /* Change the hover color as needed */
+        }
     </style>
 </head>
-
-<!-- Navigation section -->
 <body class="{{ dark_mode_class }}">
     <div class="container mt-5">
         <div class="header">
@@ -264,6 +299,7 @@
             <div class="navigation">
                 <button id="dark-mode-toggle" class="btn btn-secondary">Dark Mode</button>
                 <a href="#" class="btn btn-secondary about-btn">About</a>
+                <button id="show-how-to-use-sidebar" class="btn btn-secondary">How to Use</button> <!-- New button -->
             </div>
         </div>
         <p class="tagline">AI-Powered YouTube Video Summaries; Learn More, Save Time.</p>
@@ -304,6 +340,7 @@
 
         <!-- Sidebar for "About" -->
         <div class="about-sidebar">
+            <button class="close-button" id="close-about-sidebar">&times;</button>
             <h3>About Us</h3>
             <div class="about-section">
                 <h4>Overview</h4>
@@ -335,13 +372,14 @@
 
         <!-- Sidebar for "How to Use" -->
         <div class="how-to-use-sidebar active">
+            <button class="close-button" id="close-how-to-use-sidebar">&times;</button>
             <h4>Too Long; Didn't Watch</h4>
             <div class="about-section">
                 <h5>How to Use:</h5>
                 <p></p>
                 <p>1. Enter the YouTube video URL in the search field.</p>
                 <p>2. Click the "Get Summary" button to generate the video summary.</p>
-                <p>3. Wait for the AI to extract and summarise the data from the video.</p>
+                <p>3. Wait for the AI to extract and summarize the data from the video.</p>
                 <p>4. Read the generated summary to quickly grasp the video's content.</p>
                 <br><br>
                 <h5>Why Use This App</h5>
@@ -364,7 +402,6 @@
         <!-- Start of JavaScript code and functionality -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script>
-
             // Check and apply dark mode preference on page load
             var darkModePreference = sessionStorage.getItem('dark_mode');
             if (darkModePreference === 'true') {
@@ -419,6 +456,23 @@
                 $('.about-sidebar').toggleClass('active');
             });
 
+            $(document).ready(function () {
+                // Function to toggle the "About" sidebar
+                $('#close-about-sidebar').click(function () {
+                    $('.about-sidebar').toggleClass('active');
+                });
+
+                // Function to toggle the "How to Use" sidebar
+                $('#close-how-to-use-sidebar').click(function () {
+                    $('.how-to-use-sidebar').toggleClass('active');
+                });
+
+                // Function to show the "How to Use" sidebar when the button is clicked
+                $('#show-how-to-use-sidebar').click(function () {
+                    $('.how-to-use-sidebar').toggleClass('active');
+                });
+            });
         </script>
-    </body>
+    </div>
+</body>
 </html>
