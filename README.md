@@ -2,6 +2,8 @@
 
 tl;dw (Too Long; Didn't Watch) is a web application designed to help users quickly generate summaries of YouTube videos. Whether you're short on time or looking for a concise overview, tl;dw leverages AI-powered transcription and analysis to provide you with a summary of video content.
 
+Link to project: https://nikusigh.pythonanywhere.com/
+
 ## Features
 
 - **AI-Powered Summaries**: Utilizes OpenAI's Language Model (LLM) to process video content and generate concise summaries.
